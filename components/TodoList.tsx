@@ -1,11 +1,17 @@
 "use client";
 
+<<<<<<< HEAD
 import { Todo } from '../types/todo';
+=======
+import { Todo } from "../app/types";
+import TodoItem from "./TodoItem";
+>>>>>>> b1d0a7dcd1afaaa3fa2fbeac69f93b396516919c
 
 interface TodoListProps {
     todos: Todo[];
     onToggle: (id: string) => void;
     onDelete: (id: string) => void;
+<<<<<<< HEAD
 }
 
 export default function TodoList({ todos, onToggle, onDelete }: TodoListProps) {
@@ -13,11 +19,22 @@ export default function TodoList({ todos, onToggle, onDelete }: TodoListProps) {
         return (
             <div className="text-center py-12 text-white/40 bg-white/5 rounded-2xl border border-white/10 border-dashed">
                 <p>No tasks yet. Add one above!</p>
+=======
+    onEdit: (id: string, newText: string) => void;
+}
+
+export default function TodoList({ todos, onToggle, onDelete, onEdit }: TodoListProps) {
+    if (todos.length === 0) {
+        return (
+            <div className="flex flex-col items-center justify-center p-8 text-zinc-500 dark:text-zinc-400">
+                <p className="text-lg">No tasks yet. Add one above!</p>
+>>>>>>> b1d0a7dcd1afaaa3fa2fbeac69f93b396516919c
             </div>
         );
     }
 
     return (
+<<<<<<< HEAD
         <ul className="space-y-3">
             {todos.map((todo) => (
                 <li
@@ -58,5 +75,18 @@ export default function TodoList({ todos, onToggle, onDelete }: TodoListProps) {
                 </li>
             ))}
         </ul>
+=======
+        <div className="w-full max-w-md mt-6">
+            {todos.map((todo) => (
+                <TodoItem
+                    key={todo.id}
+                    todo={todo}
+                    onToggle={onToggle}
+                    onDelete={onDelete}
+                    onEdit={onEdit}
+                />
+            ))}
+        </div>
+>>>>>>> b1d0a7dcd1afaaa3fa2fbeac69f93b396516919c
     );
 }
