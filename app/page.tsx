@@ -1,49 +1,66 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useTransition } from "react";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
-import { Todo } from "../types/todo";
+import { getTodos, addTodo as dbAddTodo, toggleTodo as dbToggleTodo, deleteTodo as dbDeleteTodo } from "./actions";
 
 export default function Home() {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<any[]>([]);
   const [isMounted, setIsMounted] = useState(false);
+  const [isPending, startTransition] = useTransition();
+
+  const fetchTodos = async () => {
+    try {
+      const data = await getTodos();
+      // Map database types to frontend if necessary (e.g., Dates to strings if components expect that)
+      const formattedData = data.map(todo => ({
+        ...todo,
+        createdAt: todo.createdAt.toISOString()
+      }));
+      setTodos(formattedData);
+    } catch (error) {
+      console.error("Failed to fetch todos:", error);
+    }
+  };
 
   useEffect(() => {
     setIsMounted(true);
-    const saved = localStorage.getItem("todos");
-    if (saved) {
-      setTodos(JSON.parse(saved));
-    }
+    fetchTodos();
   }, []);
 
-  useEffect(() => {
-    if (isMounted) {
-      localStorage.setItem("todos", JSON.stringify(todos));
-    }
-  }, [todos, isMounted]);
-
-  const addTodo = (text: string) => {
-    const newTodo: Todo = {
-      id: crypto.randomUUID(),
-      text,
-      completed: false,
-      createdAt: new Date().toISOString(),
-    };
-    setTodos([newTodo, ...todos]);
+  const addTodo = async (text: string) => {
+    startTransition(async () => {
+      try {
+        await dbAddTodo(text);
+        await fetchTodos();
+      } catch (error) {
+        console.error("Failed to add todo:", error);
+      }
+    });
   };
 
-  const toggleTodo = (id: string) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
+  const toggleTodo = async (id: string, currentStatus: boolean) => {
+    startTransition(async () => {
+      try {
+        await dbToggleTodo(id, !currentStatus);
+        await fetchTodos();
+      } catch (error) {
+        console.error("Failed to toggle todo:", error);
+      }
+    });
   };
 
-  const deleteTodo = (id: string) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+  const deleteTodo = async (id: string) => {
+    startTransition(async () => {
+      try {
+        await dbDeleteTodo(id);
+        await fetchTodos();
+      } catch (error) {
+        console.error("Failed to delete todo:", error);
+      }
+    });
   };
 
   if (!isMounted) return null;
@@ -61,16 +78,25 @@ export default function Home() {
         </header>
 
         <SignedIn>
-          <TodoForm onAdd={addTodo} />
+          <div className={isPending ? "opacity-50 pointer-events-none transition-opacity" : "transition-opacity"}>
+            <TodoForm onAdd={addTodo} />
 
-          <div className="mt-8">
-            <div className="flex justify-between items-end mb-4 px-2">
-              <h2 className="text-xl font-bold text-white/90">Your List</h2>
-              <span className="text-sm text-white/40">
-                {todos.filter(t => t.completed).length}/{todos.length} Completed
-              </span>
+            <div className="mt-8">
+              <div className="flex justify-between items-end mb-4 px-2">
+                <h2 className="text-xl font-bold text-white/90">Your List</h2>
+                <span className="text-sm text-white/40">
+                  {todos.filter(t => t.completed).length}/{todos.length} Completed
+                </span>
+              </div>
+              <TodoList
+                todos={todos}
+                onToggle={(id) => {
+                  const todo = todos.find(t => t.id === id);
+                  if (todo) toggleTodo(id, todo.completed);
+                }}
+                onDelete={deleteTodo}
+              />
             </div>
-            <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
           </div>
         </SignedIn>
 
