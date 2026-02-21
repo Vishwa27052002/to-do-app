@@ -4,10 +4,11 @@ import { useState, useEffect, useTransition } from "react";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
+import { Todo } from "../types/todo";
 import { getTodos, addTodo as dbAddTodo, toggleTodo as dbToggleTodo, deleteTodo as dbDeleteTodo } from "./actions";
 
 export default function Home() {
-  const [todos, setTodos] = useState<any[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
   const [isMounted, setIsMounted] = useState(false);
   const [isPending, startTransition] = useTransition();
 
