@@ -17,13 +17,14 @@ export async function getTodos() {
         .orderBy(desc(todos.createdAt));
 }
 
-export async function addTodo(text: string) {
+export async function addTodo(text: string, reminderDate?: Date) {
     const { userId } = await auth();
     if (!userId) throw new Error("Unauthorized");
 
     await db.insert(todos).values({
         userId,
         text,
+        reminderDate,
     });
 
     revalidatePath("/");
@@ -46,6 +47,18 @@ export async function deleteTodo(id: string) {
     if (!userId) throw new Error("Unauthorized");
 
     await db.delete(todos).where(and(eq(todos.id, id), eq(todos.userId, userId)));
+
+    revalidatePath("/");
+}
+
+export async function updateTodo(id: string, updates: Partial<{ text: string; completed: boolean; reminderDate: Date | null }>) {
+    const { userId } = await auth();
+    if (!userId) throw new Error("Unauthorized");
+
+    await db
+        .update(todos)
+        .set(updates)
+        .where(and(eq(todos.id, id), eq(todos.userId, userId)));
 
     revalidatePath("/");
 }

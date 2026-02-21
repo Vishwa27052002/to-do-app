@@ -17,7 +17,8 @@ export default function Home() {
       // Map database types to frontend if necessary (e.g., Dates to strings if components expect that)
       const formattedData = data.map(todo => ({
         ...todo,
-        createdAt: todo.createdAt.toISOString()
+        createdAt: todo.createdAt.toISOString(),
+        reminderDate: todo.reminderDate ? todo.reminderDate.toISOString() : null
       }));
       setTodos(formattedData);
     } catch (error) {
@@ -30,10 +31,10 @@ export default function Home() {
     fetchTodos();
   }, []);
 
-  const addTodo = async (text: string) => {
+  const addTodo = async (text: string, reminderDate?: Date) => {
     startTransition(async () => {
       try {
-        await dbAddTodo(text);
+        await dbAddTodo(text, reminderDate);
         await fetchTodos();
       } catch (error) {
         console.error("Failed to add todo:", error);

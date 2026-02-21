@@ -50,17 +50,24 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemP
                         className="flex-1 px-2 py-1 text-lg border rounded border-zinc-300 dark:border-zinc-600 dark:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 ) : (
-                    <span
-                        className={`text-lg transition-all cursor-pointer ${ // Added cursor-pointer
-                            todo.completed
-                                ? "text-zinc-400 line-through dark:text-zinc-500"
-                                : "text-zinc-800 dark:text-zinc-100"
-                            }`}
-                        onClick={() => setIsEditing(true)} // Added onClick to enable editing
-                        title="Click to edit" // Added title for accessibility
-                    >
-                        {todo.text}
-                    </span>
+                    <div className="flex flex-col">
+                        <span
+                            className={`text-lg transition-all cursor-pointer ${ // Added cursor-pointer
+                                todo.completed
+                                    ? "text-zinc-400 line-through dark:text-zinc-500"
+                                    : "text-zinc-800 dark:text-zinc-100"
+                                }`}
+                            onClick={() => setIsEditing(true)} // Added onClick to enable editing
+                            title="Click to edit" // Added title for accessibility
+                        >
+                            {todo.text}
+                        </span>
+                        {todo.reminderDate && (
+                            <span className="text-xs text-purple-500 font-medium">
+                                Reminder: {new Date(todo.reminderDate).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' })}
+                            </span>
+                        )}
+                    </div>
                 )}
             </div>
             <div className="flex gap-1"> {/* Wrapped buttons in a div with gap */}

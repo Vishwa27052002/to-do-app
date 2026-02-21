@@ -6,6 +6,7 @@ export const todos = pgTable("todos", {
     text: text("text").notNull(),
     completed: boolean("completed").notNull().default(false),
     createdAt: timestamp("created_at").notNull().defaultNow(),
+    reminderDate: timestamp("reminder_date"),
 });
 
 export type Todo = typeof todos.$inferSelect;
