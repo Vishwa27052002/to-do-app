@@ -2,7 +2,7 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
 const isPublicRoute = createRouteMatcher(['/api/webhooks/clerk(.*)']);
 
-export default clerkMiddleware(async (auth, req) => {
+export const proxy = clerkMiddleware(async (auth, req) => {
     // Bypass authentication for Playwright tests
     if (req.headers.get('x-playwright-test') === 'true') {
         return;
@@ -12,6 +12,8 @@ export default clerkMiddleware(async (auth, req) => {
         await auth.protect();
     }
 });
+
+export default proxy;
 
 export const config = {
     matcher: [
