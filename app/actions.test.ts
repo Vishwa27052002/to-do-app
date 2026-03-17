@@ -38,7 +38,8 @@ describe('Server Actions', () => {
 
         it('should return todos for authorized user', async () => {
             vi.mocked(auth).mockResolvedValueOnce({ userId: 'user_123' } as any)
-            const mockTodos = [{ id: '1', text: 'Test Todo' }]
+            const now = new Date();
+            const mockTodos = [{ id: '1', text: 'Test Todo', createdAt: now, reminderDate: null }]
             vi.mocked(db.select().from(null as any).where(null as any).orderBy).mockResolvedValueOnce(mockTodos as any)
 
             const result = await getTodos()

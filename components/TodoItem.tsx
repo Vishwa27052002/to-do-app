@@ -12,7 +12,12 @@ interface TodoItemProps {
 
 export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemProps) { // Added onEdit to destructuring
     const [isEditing, setIsEditing] = useState(false);
-    const [editText, setEditText] = useState(todo.text);
+    const [editText, setEditText] = useState("");
+
+    const handleStartEdit = () => {
+        setEditText(todo.text);
+        setIsEditing(true);
+    };
 
     const handleSave = () => {
         if (editText.trim()) {
@@ -57,7 +62,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemP
                                     ? "text-zinc-400 line-through dark:text-zinc-500"
                                     : "text-zinc-800 dark:text-zinc-100"
                                 }`}
-                            onClick={() => setIsEditing(true)} // Added onClick to enable editing
+                            onClick={handleStartEdit} // Added onClick to enable editing
                             title="Click to edit" // Added title for accessibility
                         >
                             {todo.text}
@@ -73,7 +78,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemP
             <div className="flex gap-1"> {/* Wrapped buttons in a div with gap */}
                 {!isEditing && (
                     <button
-                        onClick={() => setIsEditing(true)}
+                        onClick={handleStartEdit}
                         className="px-3 py-1 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
                         aria-label="Edit task"
                     >

@@ -7,6 +7,8 @@ import { eq, and, desc } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 
+import { cache } from "react";
+
 async function getUserId() {
     const headerList = await headers();
     if (headerList.get('x-playwright-test') === 'true') {
@@ -16,16 +18,24 @@ async function getUserId() {
     return userId;
 }
 
-export async function getTodos() {
+export const getTodos = cache(async () => {
     const userId = await getUserId();
     if (!userId) return [];
 
-    return db
+    const results = await db
         .select()
         .from(todos)
         .where(eq(todos.userId, userId))
         .orderBy(desc(todos.createdAt));
-}
+
+    // Ensure we return a plain object that's easily serializable
+    return results.map(todo => ({
+        ...todo,
+        // RSC can handle Date objects, but we'll be explicit about the structure
+        createdAt: todo.createdAt,
+        reminderDate: todo.reminderDate || null,
+    }));
+});
 
 export async function addTodo(text: string, reminderDate?: Date) {
     const userId = await getUserId();

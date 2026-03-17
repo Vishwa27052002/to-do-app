@@ -1,5 +1,3 @@
-"use client";
-
 import { Todo } from '../types/todo';
 import TodoItem from './TodoItem';
 
@@ -26,7 +24,7 @@ export default function TodoList({ todos, onToggle, onDelete }: TodoListProps) {
                     todo={todo}
                     onToggle={onToggle}
                     onDelete={onDelete}
-                    onEdit={() => { }} // Placeholder or implement edit if needed, preventing error for now
+                    onEdit={() => { }} // Placeholder or implement edit if needed
                 />
             ))}
         </div>
