@@ -20,12 +20,12 @@
         - generic [ref=e18]:
           - generic [ref=e19]:
             - heading "Your List" [level=2] [ref=e20]
-            - generic [ref=e21]: 5/26 Completed
+            - generic [ref=e21]: 5/28 Completed
           - generic [ref=e22]:
             - generic [ref=e23]:
               - generic [ref=e24]:
                 - checkbox [ref=e25]
-                - generic "Click to edit" [ref=e27] [cursor=pointer]: Delete Task 1773742008303
+                - generic "Click to edit" [ref=e27] [cursor=pointer]: Delete Task 1773744051572
               - generic [ref=e28]:
                 - button "Edit task" [ref=e29]: Edit
                 - button "Delete task" [ref=e30]:
@@ -33,7 +33,7 @@
             - generic [ref=e33]:
               - generic [ref=e34]:
                 - checkbox [ref=e35]
-                - generic "Click to edit" [ref=e37] [cursor=pointer]: Toggle Task 1773742008277
+                - generic "Click to edit" [ref=e37] [cursor=pointer]: Toggle Task 1773744051536
               - generic [ref=e38]:
                 - button "Edit task" [ref=e39]: Edit
                 - button "Delete task" [ref=e40]:
@@ -41,7 +41,7 @@
             - generic [ref=e43]:
               - generic [ref=e44]:
                 - checkbox [ref=e45]
-                - generic "Click to edit" [ref=e47] [cursor=pointer]: Test Task 1773742008253
+                - generic "Click to edit" [ref=e47] [cursor=pointer]: Delete Task 1773742008303
               - generic [ref=e48]:
                 - button "Edit task" [ref=e49]: Edit
                 - button "Delete task" [ref=e50]:
@@ -49,15 +49,15 @@
             - generic [ref=e53]:
               - generic [ref=e54]:
                 - checkbox [ref=e55]
-                - generic "Click to edit" [ref=e57] [cursor=pointer]: Test Task 1772262138041
+                - generic "Click to edit" [ref=e57] [cursor=pointer]: Toggle Task 1773742008277
               - generic [ref=e58]:
                 - button "Edit task" [ref=e59]: Edit
                 - button "Delete task" [ref=e60]:
                   - img [ref=e61]
             - generic [ref=e63]:
               - generic [ref=e64]:
-                - checkbox [checked] [ref=e65]
-                - generic "Click to edit" [ref=e67] [cursor=pointer]: Toggle Task 1772262138234
+                - checkbox [ref=e65]
+                - generic "Click to edit" [ref=e67] [cursor=pointer]: Test Task 1773742008253
               - generic [ref=e68]:
                 - button "Edit task" [ref=e69]: Edit
                 - button "Delete task" [ref=e70]:
@@ -65,23 +65,23 @@
             - generic [ref=e73]:
               - generic [ref=e74]:
                 - checkbox [ref=e75]
-                - generic "Click to edit" [ref=e77] [cursor=pointer]: Test Task 1772262014717
+                - generic "Click to edit" [ref=e77] [cursor=pointer]: Test Task 1772262138041
               - generic [ref=e78]:
                 - button "Edit task" [ref=e79]: Edit
                 - button "Delete task" [ref=e80]:
                   - img [ref=e81]
             - generic [ref=e83]:
               - generic [ref=e84]:
-                - checkbox [ref=e85]
-                - generic "Click to edit" [ref=e87] [cursor=pointer]: Delete Task 1772262014724
+                - checkbox [checked] [ref=e85]
+                - generic "Click to edit" [ref=e87] [cursor=pointer]: Toggle Task 1772262138234
               - generic [ref=e88]:
                 - button "Edit task" [ref=e89]: Edit
                 - button "Delete task" [ref=e90]:
                   - img [ref=e91]
             - generic [ref=e93]:
               - generic [ref=e94]:
-                - checkbox [checked] [ref=e95]
-                - generic "Click to edit" [ref=e97] [cursor=pointer]: Toggle Task 1772262014724
+                - checkbox [ref=e95]
+                - generic "Click to edit" [ref=e97] [cursor=pointer]: Test Task 1772262014717
               - generic [ref=e98]:
                 - button "Edit task" [ref=e99]: Edit
                 - button "Delete task" [ref=e100]:
@@ -89,7 +89,7 @@
             - generic [ref=e103]:
               - generic [ref=e104]:
                 - checkbox [ref=e105]
-                - generic "Click to edit" [ref=e107] [cursor=pointer]: Test Task 1772261321403
+                - generic "Click to edit" [ref=e107] [cursor=pointer]: Delete Task 1772262014724
               - generic [ref=e108]:
                 - button "Edit task" [ref=e109]: Edit
                 - button "Delete task" [ref=e110]:
@@ -97,31 +97,31 @@
             - generic [ref=e113]:
               - generic [ref=e114]:
                 - checkbox [checked] [ref=e115]
-                - generic "Click to edit" [ref=e117] [cursor=pointer]: Toggle Task 1772261321305
+                - generic "Click to edit" [ref=e117] [cursor=pointer]: Toggle Task 1772262014724
               - generic [ref=e118]:
                 - button "Edit task" [ref=e119]: Edit
                 - button "Delete task" [ref=e120]:
                   - img [ref=e121]
             - generic [ref=e123]:
               - generic [ref=e124]:
-                - checkbox [checked] [ref=e125]
-                - generic "Click to edit" [ref=e127] [cursor=pointer]: Toggle Task 1772261161428
+                - checkbox [ref=e125]
+                - generic "Click to edit" [ref=e127] [cursor=pointer]: Test Task 1772261321403
               - generic [ref=e128]:
                 - button "Edit task" [ref=e129]: Edit
                 - button "Delete task" [ref=e130]:
                   - img [ref=e131]
             - generic [ref=e133]:
               - generic [ref=e134]:
-                - checkbox [ref=e135]
-                - generic "Click to edit" [ref=e137] [cursor=pointer]: Test Task 1772261161430
+                - checkbox [checked] [ref=e135]
+                - generic "Click to edit" [ref=e137] [cursor=pointer]: Toggle Task 1772261321305
               - generic [ref=e138]:
                 - button "Edit task" [ref=e139]: Edit
                 - button "Delete task" [ref=e140]:
                   - img [ref=e141]
             - generic [ref=e143]:
               - generic [ref=e144]:
-                - checkbox [ref=e145]
-                - generic "Click to edit" [ref=e147] [cursor=pointer]: Delete Task 1772260997484
+                - checkbox [checked] [ref=e145]
+                - generic "Click to edit" [ref=e147] [cursor=pointer]: Toggle Task 1772261161428
               - generic [ref=e148]:
                 - button "Edit task" [ref=e149]: Edit
                 - button "Delete task" [ref=e150]:
@@ -129,7 +129,7 @@
             - generic [ref=e153]:
               - generic [ref=e154]:
                 - checkbox [ref=e155]
-                - generic "Click to edit" [ref=e157] [cursor=pointer]: Test Task 1772260997515
+                - generic "Click to edit" [ref=e157] [cursor=pointer]: Test Task 1772261161430
               - generic [ref=e158]:
                 - button "Edit task" [ref=e159]: Edit
                 - button "Delete task" [ref=e160]:
@@ -137,7 +137,7 @@
             - generic [ref=e163]:
               - generic [ref=e164]:
                 - checkbox [ref=e165]
-                - generic "Click to edit" [ref=e167] [cursor=pointer]: Toggle Task 1772260997483
+                - generic "Click to edit" [ref=e167] [cursor=pointer]: Delete Task 1772260997484
               - generic [ref=e168]:
                 - button "Edit task" [ref=e169]: Edit
                 - button "Delete task" [ref=e170]:
@@ -145,7 +145,7 @@
             - generic [ref=e173]:
               - generic [ref=e174]:
                 - checkbox [ref=e175]
-                - generic "Click to edit" [ref=e177] [cursor=pointer]: Delete Task 1772260873242
+                - generic "Click to edit" [ref=e177] [cursor=pointer]: Test Task 1772260997515
               - generic [ref=e178]:
                 - button "Edit task" [ref=e179]: Edit
                 - button "Delete task" [ref=e180]:
@@ -153,7 +153,7 @@
             - generic [ref=e183]:
               - generic [ref=e184]:
                 - checkbox [ref=e185]
-                - generic "Click to edit" [ref=e187] [cursor=pointer]: Toggle Task 1772260873246
+                - generic "Click to edit" [ref=e187] [cursor=pointer]: Toggle Task 1772260997483
               - generic [ref=e188]:
                 - button "Edit task" [ref=e189]: Edit
                 - button "Delete task" [ref=e190]:
@@ -161,7 +161,7 @@
             - generic [ref=e193]:
               - generic [ref=e194]:
                 - checkbox [ref=e195]
-                - generic "Click to edit" [ref=e197] [cursor=pointer]: Test Task 1772260873209
+                - generic "Click to edit" [ref=e197] [cursor=pointer]: Delete Task 1772260873242
               - generic [ref=e198]:
                 - button "Edit task" [ref=e199]: Edit
                 - button "Delete task" [ref=e200]:
@@ -169,7 +169,7 @@
             - generic [ref=e203]:
               - generic [ref=e204]:
                 - checkbox [ref=e205]
-                - generic "Click to edit" [ref=e207] [cursor=pointer]: Toggle Task 1772260767960
+                - generic "Click to edit" [ref=e207] [cursor=pointer]: Toggle Task 1772260873246
               - generic [ref=e208]:
                 - button "Edit task" [ref=e209]: Edit
                 - button "Delete task" [ref=e210]:
@@ -177,7 +177,7 @@
             - generic [ref=e213]:
               - generic [ref=e214]:
                 - checkbox [ref=e215]
-                - generic "Click to edit" [ref=e217] [cursor=pointer]: Toggle Task 1772260692155
+                - generic "Click to edit" [ref=e217] [cursor=pointer]: Test Task 1772260873209
               - generic [ref=e218]:
                 - button "Edit task" [ref=e219]: Edit
                 - button "Delete task" [ref=e220]:
@@ -185,7 +185,7 @@
             - generic [ref=e223]:
               - generic [ref=e224]:
                 - checkbox [ref=e225]
-                - generic "Click to edit" [ref=e227] [cursor=pointer]: Delete Task 1772260692163
+                - generic "Click to edit" [ref=e227] [cursor=pointer]: Toggle Task 1772260767960
               - generic [ref=e228]:
                 - button "Edit task" [ref=e229]: Edit
                 - button "Delete task" [ref=e230]:
@@ -193,7 +193,7 @@
             - generic [ref=e233]:
               - generic [ref=e234]:
                 - checkbox [ref=e235]
-                - generic "Click to edit" [ref=e237] [cursor=pointer]: Test Task 1772260692011
+                - generic "Click to edit" [ref=e237] [cursor=pointer]: Toggle Task 1772260692155
               - generic [ref=e238]:
                 - button "Edit task" [ref=e239]: Edit
                 - button "Delete task" [ref=e240]:
@@ -201,7 +201,7 @@
             - generic [ref=e243]:
               - generic [ref=e244]:
                 - checkbox [ref=e245]
-                - generic "Click to edit" [ref=e247] [cursor=pointer]: Delete Task 1772260633076
+                - generic "Click to edit" [ref=e247] [cursor=pointer]: Delete Task 1772260692163
               - generic [ref=e248]:
                 - button "Edit task" [ref=e249]: Edit
                 - button "Delete task" [ref=e250]:
@@ -209,7 +209,7 @@
             - generic [ref=e253]:
               - generic [ref=e254]:
                 - checkbox [ref=e255]
-                - generic "Click to edit" [ref=e257] [cursor=pointer]: Test Task 1772260633075
+                - generic "Click to edit" [ref=e257] [cursor=pointer]: Test Task 1772260692011
               - generic [ref=e258]:
                 - button "Edit task" [ref=e259]: Edit
                 - button "Delete task" [ref=e260]:
@@ -217,29 +217,45 @@
             - generic [ref=e263]:
               - generic [ref=e264]:
                 - checkbox [ref=e265]
-                - generic "Click to edit" [ref=e267] [cursor=pointer]: Toggle Task 1772260633077
+                - generic "Click to edit" [ref=e267] [cursor=pointer]: Delete Task 1772260633076
               - generic [ref=e268]:
                 - button "Edit task" [ref=e269]: Edit
                 - button "Delete task" [ref=e270]:
                   - img [ref=e271]
             - generic [ref=e273]:
               - generic [ref=e274]:
-                - checkbox [checked] [ref=e275]
-                - generic "Click to edit" [ref=e277] [cursor=pointer]: Toggle Task 1772260088583
+                - checkbox [ref=e275]
+                - generic "Click to edit" [ref=e277] [cursor=pointer]: Test Task 1772260633075
               - generic [ref=e278]:
                 - button "Edit task" [ref=e279]: Edit
                 - button "Delete task" [ref=e280]:
                   - img [ref=e281]
-  - generic [ref=e287] [cursor=pointer]:
-    - button "Open Next.js Dev Tools" [ref=e288]:
-      - img [ref=e289]
-    - generic [ref=e292]:
-      - button "Open issues overlay" [ref=e293]:
-        - generic [ref=e294]:
-          - generic [ref=e295]: "0"
-          - generic [ref=e296]: "1"
-        - generic [ref=e297]: Issue
-      - button "Collapse issues badge" [ref=e298]:
-        - img [ref=e299]
-  - alert [ref=e301]
+            - generic [ref=e283]:
+              - generic [ref=e284]:
+                - checkbox [ref=e285]
+                - generic "Click to edit" [ref=e287] [cursor=pointer]: Toggle Task 1772260633077
+              - generic [ref=e288]:
+                - button "Edit task" [ref=e289]: Edit
+                - button "Delete task" [ref=e290]:
+                  - img [ref=e291]
+            - generic [ref=e293]:
+              - generic [ref=e294]:
+                - checkbox [checked] [ref=e295]
+                - generic "Click to edit" [ref=e297] [cursor=pointer]: Toggle Task 1772260088583
+              - generic [ref=e298]:
+                - button "Edit task" [ref=e299]: Edit
+                - button "Delete task" [ref=e300]:
+                  - img [ref=e301]
+  - generic [ref=e307] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e308]:
+      - img [ref=e309]
+    - generic [ref=e312]:
+      - button "Open issues overlay" [ref=e313]:
+        - generic [ref=e314]:
+          - generic [ref=e315]: "0"
+          - generic [ref=e316]: "1"
+        - generic [ref=e317]: Issue
+      - button "Collapse issues badge" [ref=e318]:
+        - img [ref=e319]
+  - alert [ref=e321]
 ```

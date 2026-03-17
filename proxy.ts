@@ -1,9 +1,15 @@
-import { clerkMiddleware } from '@clerk/nextjs/server';
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-export default clerkMiddleware((auth, req) => {
+const isPublicRoute = createRouteMatcher(['/api/webhooks/clerk(.*)']);
+
+export default clerkMiddleware(async (auth, req) => {
     // Bypass authentication for Playwright tests
     if (req.headers.get('x-playwright-test') === 'true') {
         return;
+    }
+
+    if (!isPublicRoute(req)) {
+        await auth.protect();
     }
 });
 
