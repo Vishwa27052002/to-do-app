@@ -27,6 +27,8 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 
+import MyStatsig from "./my-statsig";
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -40,30 +42,32 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="flex justify-end items-center p-4 gap-4 bg-[#0a0a0a] border-b border-white/10 sticky top-0 z-50">
-          {!isE2E ? (
-            <>
-              <SignedOut>
-                <SignInButton mode="modal">
-                  <button className="px-4 py-2 rounded-full bg-white text-black font-medium text-sm hover:bg-white/90 transition-colors cursor-pointer">
-                    Sign In
-                  </button>
-                </SignInButton>
-                <SignUpButton mode="modal">
-                  <button className="px-4 py-2 rounded-full border border-white/20 text-white font-medium text-sm hover:bg-white/5 transition-colors cursor-pointer">
-                    Sign Up
-                  </button>
-                </SignUpButton>
-              </SignedOut>
-              <SignedIn>
-                <UserButton afterSignOutUrl="/" />
-              </SignedIn>
-            </>
-          ) : (
-            <div className="text-white/40 text-sm font-medium">E2E Test Session</div>
-          )}
-        </header>
-        {children}
+        <MyStatsig>
+          <header className="flex justify-end items-center p-4 gap-4 bg-[#0a0a0a] border-b border-white/10 sticky top-0 z-50">
+            {!isE2E ? (
+              <>
+                <SignedOut>
+                  <SignInButton mode="modal">
+                    <button className="px-4 py-2 rounded-full bg-white text-black font-medium text-sm hover:bg-white/90 transition-colors cursor-pointer">
+                      Sign In
+                    </button>
+                  </SignInButton>
+                  <SignUpButton mode="modal">
+                    <button className="px-4 py-2 rounded-full border border-white/20 text-white font-medium text-sm hover:bg-white/5 transition-colors cursor-pointer">
+                      Sign Up
+                    </button>
+                  </SignUpButton>
+                </SignedOut>
+                <SignedIn>
+                  <UserButton afterSignOutUrl="/" />
+                </SignedIn>
+              </>
+            ) : (
+              <div className="text-white/40 text-sm font-medium">E2E Test Session</div>
+            )}
+          </header>
+          {children}
+        </MyStatsig>
       </body>
     </html>
   );
@@ -78,3 +82,4 @@ export default async function RootLayout({
     </ClerkProvider>
   );
 }
+

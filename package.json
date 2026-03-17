@@ -13,6 +13,9 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.37.5",
+    "@statsig/react-bindings": "^3.32.1",
+    "@statsig/session-replay": "^3.32.1",
+    "@statsig/web-analytics": "^3.32.1",
     "drizzle-orm": "^0.45.1",
     "next": "16.1.6",
     "postgres": "^3.4.8",
