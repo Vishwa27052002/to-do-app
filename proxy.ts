@@ -1,6 +1,11 @@
 import { clerkMiddleware } from '@clerk/nextjs/server';
 
-export default clerkMiddleware();
+export default clerkMiddleware((auth, req) => {
+    // Bypass authentication for Playwright tests
+    if (req.headers.get('x-playwright-test') === 'true') {
+        return;
+    }
+});
 
 export const config = {
     matcher: [

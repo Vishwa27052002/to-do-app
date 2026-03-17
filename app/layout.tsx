@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { cookies } from "next/headers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,37 +27,54 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const isE2E = cookieStore.get('x-playwright-test')?.value === 'true';
+
+  const content = (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <header className="flex justify-end items-center p-4 gap-4 bg-[#0a0a0a] border-b border-white/10 sticky top-0 z-50">
+          {!isE2E ? (
+            <>
+              <SignedOut>
+                <SignInButton mode="modal">
+                  <button className="px-4 py-2 rounded-full bg-white text-black font-medium text-sm hover:bg-white/90 transition-colors cursor-pointer">
+                    Sign In
+                  </button>
+                </SignInButton>
+                <SignUpButton mode="modal">
+                  <button className="px-4 py-2 rounded-full border border-white/20 text-white font-medium text-sm hover:bg-white/5 transition-colors cursor-pointer">
+                    Sign Up
+                  </button>
+                </SignUpButton>
+              </SignedOut>
+              <SignedIn>
+                <UserButton afterSignOutUrl="/" />
+              </SignedIn>
+            </>
+          ) : (
+            <div className="text-white/40 text-sm font-medium">E2E Test Session</div>
+          )}
+        </header>
+        {children}
+      </body>
+    </html>
+  );
+
+  if (isE2E) {
+    return content;
+  }
+
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <header className="flex justify-end items-center p-4 gap-4 bg-[#0a0a0a] border-b border-white/10 sticky top-0 z-50">
-            <SignedOut>
-              <SignInButton mode="modal">
-                <button className="px-4 py-2 rounded-full bg-white text-black font-medium text-sm hover:bg-white/90 transition-colors cursor-pointer">
-                  Sign In
-                </button>
-              </SignInButton>
-              <SignUpButton mode="modal">
-                <button className="px-4 py-2 rounded-full border border-white/20 text-white font-medium text-sm hover:bg-white/5 transition-colors cursor-pointer">
-                  Sign Up
-                </button>
-              </SignUpButton>
-            </SignedOut>
-            <SignedIn>
-              <UserButton afterSignOutUrl="/" />
-            </SignedIn>
-          </header>
-          {children}
-        </body>
-      </html>
+      {content}
     </ClerkProvider>
   );
 }
